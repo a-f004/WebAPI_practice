@@ -1,0 +1,48 @@
+body {
+  margin: 0 auto;
+  background-color: snow;
+  border: 2px solid #432eff;
+  min-height: 100vh;
+  display: grid;
+  grid-template:
+      " header " 150px
+      " ...... " 10px
+      " center " 1fr
+}
+
+header {
+  grid-area: header;
+  background-color: #432eff;
+  color: #fff;
+  text-align: center;
+  line-height: 150px;
+}
+
+main {
+  grid-area: center;
+}
+
+img {
+  width: 40%;
+  height: 40%;
+  opacity: 0;
+  display: block;
+  margin: 10px auto;
+}
+
+.show{
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+
+@media (min-width: 900px) {
+  body {
+    width: 70%;
+    grid-template:
+        " header " 150px
+        " ...... " 10px
+        " center " 1fr
+        / auto;
+  }
+  
+}
