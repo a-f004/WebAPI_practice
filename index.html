@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>最終課題</title>
+  </head>
+  <body>
+    <h1>最終課題</h1>
+    <p>経過時間[s]</p>
+    <p id="app" class="time">{{ counter }}</p>
+  
+    <details class="js-details">
+      <summary class="js-summary">
+        <span class="summary_inner">
+          API①<span class="icon"></span>
+        </span>
+      </summary>
+      <div class="content js-content">
+        <div class="content_inner">
+        <div class="container" id="container"></div>
+        <button id="addBtn">追加</button>
+        </div>
+      </div>
+    </details>
+  
+    <details class="js-details">
+      <summary class="js-summary">
+        <span class="summary_inner">
+          API②<span class="icon"></span>
+        </span>
+      </summary>
+      <div class="content js-content">
+        <div class="content_inner">
+          <div>Google Maps</div>
+          <input type="text" id="keyword" placeholder="場所を検索">
+          <button id="search">検索実行</button>
+          <!-- <button id="clear">結果クリア</button> -->
+          <div id="target"></div>
+        </div>
+      </div>
+    </details>
+    
+
+    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=XXXX" async defer></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="map.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          counter: "",
+        },
+        mounted: function () {
+          var count = 0;
+          this.$nextTick(function () {
+            this.counter = count;
+          });
+          const countUp = () => {
+            count += 1;
+            this.counter = count;
+          };
+          setInterval(countUp, 1000);
+        },
+      });
+    </script>
+
+  </body>
+</html>
